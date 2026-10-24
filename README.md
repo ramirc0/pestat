@@ -7,10 +7,10 @@ It needs Python 3.11 or later and has no dependencies.
 ## Install
 
 ```bash
-uv tool install --python 3.12 git+<repo-url>   # or: uv tool install --python 3.12 .
+pixi global install --git ssh://git@github.com/ramirc0/pestat.git --expose pestat --with python=3.13
 ```
 
-Python 3.14's `argparse` imports `_colorize`, which adds about 7 ms to each run. Install with 3.12 or 3.13 for the fastest start.
+`uv tool install --python 3.13 .` also works from a checkout. Python 3.14 and later make `argparse` import `_colorize`, which adds about 7 ms to each run, so pin 3.12 or 3.13 for the fastest start.
 
 ## Usage
 
