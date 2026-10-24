@@ -143,6 +143,7 @@ def build_parser():
         "-p",
         "--partition",
         type=_names,
+        metavar="PARTITIONS",
         help="Only nodes in these comma-separated partitions.",
     )
     p.add_argument(
@@ -156,6 +157,7 @@ def build_parser():
         "--user",
         dest="username",
         type=_names,
+        metavar="USERS",
         help="Only nodes running jobs of these users.",
     )
     p.add_argument(
@@ -163,12 +165,14 @@ def build_parser():
         "--group",
         dest="groupname",
         type=_names,
+        metavar="GROUPS",
         help="Only jobs of these UNIX groups, and their nodes.",
     )
     p.add_argument(
         "-A",
         "--account",
         dest="accountlist",
+        metavar="ACCOUNTS",
         help="Only jobs in these Slurm accounts, and their nodes.",
     )
     p.add_argument(
@@ -179,22 +183,41 @@ def build_parser():
         help="Print user(account) for each job.",
     )
     p.add_argument(
-        "-q", "--qos", dest="qoslist", help="Only jobs with these QOS, and their nodes."
+        "-q",
+        "--qos",
+        dest="qoslist",
+        metavar="QOS",
+        help="Only jobs with these QOS, and their nodes.",
     )
     p.add_argument(
         "-R",
         "--reservation",
         dest="reservationlist",
+        metavar="RESERVATIONS",
         help="Only jobs in these reservations, and their nodes.",
     )
     p.add_argument(
-        "-s", "-t", "--states", dest="statelist", help="Only nodes in these states."
+        "-s",
+        "-t",
+        "--states",
+        dest="statelist",
+        metavar="STATES",
+        help="Only nodes in these states.",
     )
     p.add_argument(
-        "-n", "-w", "--nodes", dest="hostlist", help="Only nodes in this hostlist."
+        "-n",
+        "-w",
+        "--nodes",
+        dest="hostlist",
+        metavar="HOSTLIST",
+        help="Only nodes in this hostlist.",
     )
     p.add_argument(
-        "-j", "--jobs", dest="joblist", help="Only nodes running these jobs."
+        "-j",
+        "--jobs",
+        dest="joblist",
+        metavar="JOBS",
+        help="Only nodes running these jobs.",
     )
     p.add_argument(
         "-G",
