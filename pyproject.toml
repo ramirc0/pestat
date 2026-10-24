@@ -1,0 +1,49 @@
+[project]
+name = "pestat"
+version = "0.1.0"
+description = "Slurm node status with running jobs, a Python port of Ole Holm Nielsen's pestat."
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Christian Ramirez", email = "christian.ramirez1@umassmed.edu" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+pestat = "pestat.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["numpydoc>=1.8", "pytest>=8", "ruff>=0.15"]
+
+[tool.uv]
+exclude-newer = "7d"
+exclude-newer-package = { certifi = false }
+
+[tool.ruff.lint]
+extend-select = ["B", "D", "I", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+# Test functions are named for what they check.
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+# "all" minus the codes after it: extended summary, see also.
+[tool.numpydoc_validation]
+checks = ["all", "ES01", "SA01"]
+exclude = ['\._', '\.__init__$']
+
+[tool.pytest.ini_options]
+testpaths = ["src", "tests"]
+addopts = "--doctest-modules -m 'not live'"
+markers = [
+    "live: runs against the live Slurm cluster",
+    "reference: runs the upstream bash pestat against fake Slurm commands",
+]
