@@ -223,3 +223,25 @@ def parse_reference(stdout):
             }
         )
     return rows
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--update-golden", action="store_true", help="Rewrite tests/golden snapshots."
+    )
+
+
+@pytest.fixture
+def golden(request):
+    """Compare text with ``tests/golden/<name>.txt``, writing it when asked."""
+
+    def check(name, text):
+        path = TESTS / "golden" / f"{name}.txt"
+        if request.config.getoption("--update-golden") or not path.exists():
+            path.parent.mkdir(exist_ok=True)
+            path.write_text(text)
+            if not request.config.getoption("--update-golden"):
+                pytest.fail(f"wrote missing snapshot {path.name}; review and rerun")
+        assert text == path.read_text()
+
+    return check

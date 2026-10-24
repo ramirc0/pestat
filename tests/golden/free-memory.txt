@@ -1,0 +1,5 @@
+HOST  PARTITIONS  STATE   CPUS   LOAD(5m)   MEMORY  FREE   JOBS
+n05   long        idle     0/8       0.05      62G    5G!
+n06   long        idle     0/8       0.05      62G   10G*
+
+2 nodes, 0/16 CPUs allocated, 1 critical (!), 1 warning (*)

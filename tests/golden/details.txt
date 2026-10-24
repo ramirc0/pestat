@@ -1,0 +1,15 @@
+HOST  PARTITIONS   STATE    CPUS   LOAD(5m)   MEMORY  FREE   GPUS  JOBS user(account) id(gpu,name,start,end,used)
+n01   short*,long  idle      0/8       0.05      62G   59G
+n02   short*,long  alloc     8/8       8.10      62G   59G         ramirezc(a1) 101(-,job101,2026-10-24T08:00:00,2026-10-24T20:00:00,1:00:00)
+n03   long         mix       4/8       9.50!     62G   59G         root(a2) 102(-,job102,2026-10-24T08:00:00,2026-10-25T08:00:00,1:00:00)
+n04   long         alloc     8/8       5.50*     62G   59G
+n05   long         idle      0/8       0.05      62G    5G!
+n06   long         idle      0/8       0.05      62G   10G*
+n07   short*       drain!    0/8       0.05      62G   59G
+n08   gpu          mix     16/32       3.00      62G   59G    2/4  ramirezc(a1) 103(gpu:v100=2,job103,2026-10-24T08:00:00,2026-10-25T08:00:00,1:00:00)
+n09   gpu          idle     0/32       0.05      62G   59G    0/4
+n10   long         mix       2/8!      2.00      62G   59G         ramirezc(a1) 104(-,job104,2026-10-24T08:00:00,2026-10-25T08:00:00,2-03:04:05) 106(-,job106,2026-10-24T08:00:00,2026-10-25T08:00:00,20:00), root(a1) 105(-,job105,2026-10-24T08:00:00,2026-10-26T08:00:00,1:00:00), last end 2026-10-26T08:00:00
+n11   long         mix       4/8*     12.00!     62G   59G         ramirezc(a1) 110(-,job110,2026-10-24T08:00:00,2026-10-25T08:00:00,1:00:00)
+n12   long         mix       4/8*     12.00!     62G   59G         ramirezc(a1) 110(-,job110,2026-10-24T08:00:00,2026-10-25T08:00:00,1:00:00)
+
+12 nodes, 46/144 CPUs allocated, 2/8 GPUs in use, 6 critical (!), 2 warnings (*)

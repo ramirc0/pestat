@@ -102,7 +102,7 @@ def write_text(rows, opts, file, *, default_partition=None, colors=False, width=
             plain.append(pad + text if right else text + pad)
             painted.append(pad + shown if right else shown + pad)
         room = width - len("  ".join(plain)) - 2 if width else len(jobs)
-        if len(jobs) > room:
+        if jobs and len(jobs) > room:
             jobs = jobs[: max(room - len(ellipsis), 0)] + ellipsis
         file.write(("  ".join(painted) + "  " + jobs).rstrip() + "\n")
     file.write("\n" + _summary(rows) + "\n")

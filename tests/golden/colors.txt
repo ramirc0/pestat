@@ -1,0 +1,15 @@
+[1mHOST[0m  [1mPARTITIONS[0m   [1mSTATE [0m   [1mCPUS [0m  [1mLOAD(5m) [0m  [1mMEMORY[0m  [1mFREE [0m  [1mGPUS[0m  JOBS
+n01   short*,long  [1;32midle [0m     0/8       0.05      62G   59G
+n02   short*,long  alloc     8/8       8.10      62G   59G         ramirezc 101
+n03   long         mix       4/8       [1;31m9.50![0m     62G   59G         root 102
+n04   long         alloc     8/8       [1;35m5.50*[0m     62G   59G
+n05   long         [1;32midle [0m     0/8       0.05      62G    [1;31m5G![0m
+n06   long         [1;32midle [0m     0/8       0.05      62G   [1;35m10G*[0m
+n07   short*       [1;31mdrain![0m    0/8       0.05      62G   59G
+n08   gpu          mix     16/32       3.00      62G   59G    2/4  ramirezc 103
+n09   gpu          [1;32midle [0m    0/32       0.05      62G   59G    0/4
+n10   long         mix       [1;31m2/8![0m      2.00      62G   59G         ramirezc 104 106, root 105
+n11   long         mix       [1;35m4/8*[0m     [1;31m12.00![0m     62G   59G         ramirezc 110
+n12   long         mix       [1;35m4/8*[0m     [1;31m12.00![0m     62G   59G         ramirezc 110
+
+12 nodes, 46/144 CPUs allocated, 2/8 GPUs in use, 6 critical (!), 2 warnings (*)

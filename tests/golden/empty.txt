@@ -1,0 +1,3 @@
+HOST  PARTITIONS  STATE   CPUS   LOAD(5m)   MEMORY  FREE   JOBS
+
+0 nodes, 0/0 CPUs allocated
