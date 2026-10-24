@@ -2,8 +2,8 @@
 
 Usage: ``fakeslurm.py STATE.json COMMAND ARGS...``. The snapshot holds
 ``nodes`` (one row per node and partition, keyed by sinfo ``-O`` field
-names), ``jobs`` (keyed by squeue ``-O`` field names), ``accounts``, ``qos``
-and ``users``. Every call is appended to ``calls.jsonl`` beside the snapshot.
+names), ``jobs`` (keyed by squeue ``-O`` field names), ``accounts``, ``qos``,
+``users`` and ``fail`` (commands that exit 1). Every call is appended to ``calls.jsonl`` beside the snapshot.
 """
 
 import grp
@@ -208,6 +208,9 @@ def main():
     with open(path.with_name("calls.jsonl"), "a") as log:
         log.write(json.dumps([command, *args]) + "\n")
     state = json.loads(path.read_text())
+    if command in state.get("fail", []):
+        print(f"{command}: error: Unable to contact slurm controller", file=sys.stderr)
+        return 1
     handlers = {
         "sinfo": sinfo,
         "squeue": squeue,
